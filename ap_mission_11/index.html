@@ -1,0 +1,100 @@
+<!--Chéret-Guillet Alizée-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="style.js"></script>
+
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="company">
+      <h1>Nom de la compagnie</h1>
+      <p>Adresse postale <br><br> Détails de contact</p>
+    </div>
+    <div class="invoice-title">
+      <h2>FACTURE  </h2>
+      <p class="date">26/01/2023</p>
+      <br> -------------------------------<br><br> N° de commande est : <br> -------------------------------
+    </div>
+  </header>
+
+  <main>
+        <h3>Destinataire <br> ----------------------------------------------------------------- </h3>
+        <p class="secondaire">Nom<br>Nom de la société<br>Adresse postale<br>Téléphone<br>Email</p>
+
+        <h4>Envoyer à <br> ----------------------------------------------------------------</h4>
+        <p class="important"></p>Nom<br>Nom de la société<br>Adresse postale<br>Téléphone<br>Email</p>
+
+      <table>
+          <tr>
+            <th>DESCRIPTION</th>
+            <th>QUANTITÉ</th>
+            <th>PRIX UNITAIRE</th>
+            <th>TOTAL</th>
+          </tr>
+
+          <tr>
+            <td><input type="text" name="desc1" class="input desc" value="desc1"></td>
+            <td><input type="number" name="qty1" class="input qty" min="0" value="0"></td>
+            <td><input type="number" name="price1" class="input price" min="0" step="0.01" value="0"></td>
+            <td><input type="text" name="total1" class="input total" readonly value="0"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="desc2" class="input desc" value="desc2"></td>
+            <td><input type="number" name="qty2" class="input qty" min="0" value="0"></td>
+            <td><input type="number" name="price2" class="input price" min="0" step="0.01" value="0"></td>
+            <td><input type="text" name="total2" class="input total" readonly value="0"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="desc3" class="input desc" value="desc3"></td>
+            <td><input type="number" name="qty3" class="input qty" min="0" value="0"></td>
+            <td><input type="number" name="price3" class="input price" min="0" step="0.01" value="0"></td>
+            <td><input type="text" name="total3" class="input total" readonly value="0"></td>
+          </tr>
+          <tr class="row">
+            <td><input type="text" name="desc4" class="input desc" value="desc3"></td>
+            <td><input type="number" name="qty4" class="input qty" min="0" value="0"></td>
+            <td><input type="number" name="price4" class="input price" min="0" step="0.01" value="0"></td>
+            <td><input type="text" name="total4" class="input total" readonly value="0"></td>
+          </tr>
+          <tr class="row lastrow">
+            <td><input type="text" name="desc5" class="input desc" value="desc4"></td>
+            <td><input type="number" name="qty5" class="input qty" min="0" value="0"></td>
+            <td><input type="number" name="price5" class="input price" min="0" step="0.01" value="0"></td>
+            <td><input type="text" name="total5" class="input total" readonly value="0"></td>
+          </tr>
+          <tr class="row" id='modeleLigne'></tr>
+
+          <tr class="row lastrow" id="lastLigne"></tr>
+          <!-- ligne vide utilisée pour cloner si besoin -->
+        </tbody>
+      </table><br><br>
+
+        <label class="label">SOUS-TOTAL <input class="label" type="text" name="st" id="subtotal" readonly value="0.00"> </label><br>
+        <label class="label">REMISE <input class="label" type="number" id="remise" name="sr" min="0" step="0.01" value="0"></label><br>
+        <label class="label">SOUS-TOTAL APRES LES REMISES <input class="label"type="text" name="stmr" id="subtotalRemise" readonly value="0.00"> </label><br>
+        <label class="label">TAUX D'IMPOSITION <input class="label" type="number" id="taux" name="ti" min="0" step="0.01" value="20"></label><br>
+        <label class="label">TAXE TOTALE <input class="label" type="text" id="taxe" name="tt" readonly value="0.00"> </label><br>
+        <label class="label">FRAIS D'EXPEDITION <input class="label" type="number" id="frais" name="fe" min="0" step="0.01" value="5.00"></label><br>----------------------------------------------------------------<br>
+        <label class="label">SOLDE DU <input class="label" type="text" id="solde" name="so" readonly value="0.00"> </label><br><br>
+
+        <div class="controls">
+        <button onclick="addLine()">Ajouter une ligne</button>
+        <button onclick="autoFill()">Remplir automatiquement</button>
+        <button onclick="resultat()">Calculer</button>
+        <button onclick="reinitialiser()">Annuler</button><br><br><br><br>
+      </div>
+  </main>
+
+  <footer class="footer">
+    <p>Remarques, notes et instructions de paiement..</p>
+  </footer>
+
+</body>
+</html>
